@@ -1,0 +1,70 @@
+.page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+  }
+  
+.register-page {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .register-page h1 {
+    text-align: center;
+    color: #007bff; /* Blue header */
+    margin-bottom: 20px;
+  }
+  
+  .register-page form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .register-page form label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333; /* Dark gray text */
+  }
+  
+  .register-page form input[type="text"] {
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .register-page form button {
+    background-color: #007bff; /* Blue button */
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .register-page form button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  .register-page p {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .register-page p a {
+    color: #007bff; /* Blue link */
+  }
+  
+  .register-page p a:hover {
+    text-decoration: underline;
+  }
+  

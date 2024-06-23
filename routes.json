@@ -1,0 +1,6 @@
+{
+    "/users/:facultyId/newTableData": "/newTableData?userId=:facultyId",
+    "/users/:facultyId/secondTableData": "/secondTableData?userId=:facultyId",
+    "/users/:facultyId/:field": "/users/:facultyId/:field"
+  }
+  

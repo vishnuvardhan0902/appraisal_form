@@ -1,0 +1,210 @@
+/* Reset and General Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #0073e6;
+    margin-bottom: 20px;
+}
+
+/* Table Styles */
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.table th,
+.table td {
+    padding: 16px 20px;
+    border-top: 1px solid #dee2e6;
+    text-align: left;
+}
+
+.table thead th {
+    background-color: #004085;
+    color: #fff;
+    font-weight: bold;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.table tbody tr:hover {
+    background-color: #e9ecef;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f8f9fa;
+}
+
+.table-bordered {
+    border: 1px solid #dee2e6;
+}
+
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid #dee2e6;
+}
+
+.table-bordered thead th,
+.table-bordered thead td {
+    border-bottom-width: 2px;
+}
+
+/* Form Styles */
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #0073e6;
+    box-shadow: 0 0 0 0.2rem rgba(0, 115, 230, 0.25);
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    background-color: #0073e6;
+    border: 1px solid #0073e6;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn:focus, 
+.btn.focus {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    box-shadow: 0 0 0 0.2rem rgba(0, 115, 230, 0.5);
+}
+
+.btn:disabled, 
+.btn.disabled {
+    background-color: #0073e6;
+    border-color: #0073e6;
+    opacity: 0.65;
+}
+
+.btn:not(:disabled):not(.disabled):active, 
+.btn:not(:disabled):not(.disabled).active {
+    background-color: #003366;
+    border-color: #003366;
+}
+
+.btn:not(:disabled):not(.disabled):active:focus, 
+.btn:not(:disabled):not(.disabled).active:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 115, 230, 0.5);
+}
+
+/* Responsive Styles */
+@media (max-width: 767.98px) {
+    .table {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .table-bordered {
+        border: 0;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Additional Enhancements */
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes rowAdd {
+    from {
+        background-color: #d4edda;
+    }
+    to {
+        background-color: #fff;
+    }
+}
+
+@keyframes rowDelete {
+    from {
+        background-color: #f8d7da;
+        opacity: 1;
+    }
+    to {
+        background-color: #fff;
+        opacity: 0;
+    }
+}
+
+body {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.table tbody tr.new-row {
+    animation: rowAdd 0.5s ease-in-out;
+}
+
+.table tbody tr.deleted-row {
+    animation: rowDelete 0.5s ease-in-out;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0073e6;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0056b3;
+}

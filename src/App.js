@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Register from './components/Register';
+import Login from './components/Login';
+import AppraisalForm from './AppraisalForm';
+import UserProvider from './context/UserContext';
+import './Style.css';
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <Login />,
+    },
+    {
+        path: "Register",
+        element: <Register />
+    },
+    {
+        path: "AppraisalForm",
+        element: <AppraisalForm />
+    },
+]);
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <UserProvider>
+            <RouterProvider router={router} />
+        </UserProvider>
+    );
+};
 
 export default App;

@@ -1,0 +1,78 @@
+.page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+  }
+  
+  .login-page {
+    max-width: 400px;
+    width: 100%;
+    padding: 40px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  .login-page h1 {
+    text-align: center;
+    color: #007bff; /* Blue header */
+    margin-bottom: 20px;
+  }
+  
+  .login-page form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .login-page form label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333; /* Dark gray text */
+  }
+  
+  .login-page form input[type="text"] {
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .login-page form button {
+    background-color: #007bff; /* Blue button */
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-page form button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  .login-page p {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .login-page p a {
+    color: #007bff; /* Blue link */
+  }
+  
+  .login-page p a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive Styles (optional) */
+  @media (max-width: 768px) {
+    .login-page {
+      padding: 20px;
+    }
+  }
+  

@@ -1,0 +1,1206 @@
+{
+  "users": [
+    {
+      "username": "3233",
+      "password": "password123",
+      "nameOfEmployee": "Vishnu Vardhan",
+      "dateOfBirth": "09-02-2004",
+      "dateOfJoining": "03-11-2022",
+      "currentDesignation": "Professor, 2020-01-01",
+      "department": "Computer Science",
+      "assessmentPeriod": "2022-07-01 to 2023-06-30",
+      "presentPay": "Pay Band 4, Grade Pay 8900, Gross Pay 150000",
+      "leavesAvailed": "CL: 5, EL: 10, HPL: 2, Other: 1",
+      "educationalQualifications": "PhD in Computer Science",
+      "higherQualifications": "Post-Doctoral Fellowship",
+      "specialization": "Artificial Intelligence",
+      "periodOfService": "16 years",
+      "experienceBeforeJoining": "Teaching: 3 years, Industrial: 2 years, Research: 1 year",
+      "totalExperience": "Teaching: 18 years, Industrial: 2 years, Research: 1 year",
+      "contactAddress": "123 Main St, City, Country, 12345, Email: john.doe@example.com",
+      "newTableData": [
+        {
+          "id": "1",
+          "sNo": 1,
+          "courseName": "Course 1",
+          "techYearSemester": "B.Tech 1st Year 22",
+          "novelMethodsDetails": "Method A",
+          "novelMethodsScore": "50",
+          "teachingPeriodsPlanned": "41",
+          "teachingPeriodsConducted": 38,
+          "classesEngaged": "95%",
+          "totalScore": 10
+        },
+        {
+          "id": "2",
+          "sNo": 2,
+          "courseName": "Course 2",
+          "techYearSemester": "btech",
+          "novelMethodsDetails": "Method b",
+          "novelMethodsScore": "79",
+          "teachingPeriodsPlanned": 42,
+          "teachingPeriodsConducted": 41,
+          "classesEngaged": "98%",
+          "totalScore": 9
+        }
+      ],
+      "newTableTotalScore": 19,
+      "newTableGrandTotalScore": 19,
+      "secondTableData": [
+        {
+          "id": "1",
+          "sNo": 1,
+          "courseName": "Advanced Algorithms",
+          "sizeOfClass": 30,
+          "studentsAttendance75": 25,
+          "studentsAttendance6575": 3,
+          "attendanceScore": 9,
+          "feedbackReceived": 4,
+          "gradeO": 5,
+          "gradeAB": 15,
+          "gradeCD": 10,
+          "resultsScore": 8,
+          "totalScore": 20
+        },
+        {
+          "id": "2",
+          "sNo": 2,
+          "courseName": "Machine Learning",
+          "sizeOfClass": 25,
+          "studentsAttendance75": 20,
+          "studentsAttendance6575": 4,
+          "attendanceScore": 8,
+          "feedbackReceived": 5,
+          "gradeO": 6,
+          "gradeAB": 12,
+          "gradeCD": 7,
+          "resultsScore": 7,
+          "totalScore": 20
+        }
+      ],
+      "secondTableTotalScore": 40,
+      "secondTableGrandTotalScore": 40,
+      "projectsData": [
+        {
+          "id": "1",
+          "course": "btech",
+          "projectType": "mini",
+          "numberOfBatchesOrStudents": 18,
+          "score": 99
+        },
+        {
+          "id": "2",
+          "sNo": 2,
+          "course": "mtech",
+          "projectType": "major",
+          "numberOfBatchesOrStudents": 35,
+          "score": 98
+        }
+      ],
+      "projectsTotalScore": 197,
+      "grandprojectsTotalScore": 0,
+      "papersData": [
+        {
+          "id": "1",
+          "sNo": 1,
+          "publicationDetails": {
+            "journalConferenceName": "kljlkjf",
+            "nationalInternational": "flajsl"
+          },
+          "authors": "fas",
+          "titleOfPaper": "adsf",
+          "volumeIssuePageNos": "asdf",
+          "dateOfPublication": "sdf",
+          "issnIsbnNo": "sdaf",
+          "impactFactor": "sdf",
+          "indexedIn": "af",
+          "numberOfCitations": 9,
+          "score": 99
+        }
+      ],
+      "papersDataTotalScore": 0,
+      "id": "1c0f",
+      "papersTotalScore": 99,
+      "citationsData": [
+        {
+          "id": "1",
+          "sNo": 1,
+          "publicationsTillDate": 0,
+          "publicationsWithCitations": 0,
+          "totalCitations": 0,
+          "hIndex": 0,
+          "score": 0
+        },
+        {
+          "id": "2",
+          "sNo": 2,
+          "publicationsTillDate": 0,
+          "publicationsWithCitations": 0,
+          "totalCitations": 0,
+          "hIndex": 0,
+          "score": 0
+        }
+      ],
+      "citationsTotalScore": 0,
+      "booksData": [
+        {
+          "id": "1",
+          "sNo": 1,
+          "titleOfBookArticle": "",
+          "nationalInternational": "",
+          "authors": "",
+          "publisherDetails": "",
+          "editionVolumeIssuePageNos": "",
+          "dateOfPublication": "",
+          "issnIsbnNo": "",
+          "publishedEdited": "",
+          "score": 0
+        },
+        {
+          "id": "2",
+          "sNo": 2,
+          "titleOfBookArticle": "",
+          "nationalInternational": "",
+          "authors": "",
+          "publisherDetails": "",
+          "editionVolumeIssuePageNos": "",
+          "dateOfPublication": "",
+          "issnIsbnNo": "",
+          "publishedEdited": "",
+          "score": 0
+        }
+      ],
+      "booksTotalScore": 0,
+      "patentsData": [
+        {
+          "id": "1",
+          "sNo": 1,
+          "titleOfPatent": "",
+          "country": "",
+          "institute": "",
+          "fileNumber": "",
+          "status": "",
+          "dateOfApplication": "",
+          "dateOfPublication": "",
+          "dateOfGrant": "",
+          "validDuration": "2",
+          "score": 3
+        }
+      ],
+      "patentsTotalScore": 3,
+      "researchProjectsData": [
+        {
+          "id": "1",
+          "sNo": 1,
+          "titleOfProject": "",
+          "fundingAgency": "",
+          "amount": "",
+          "investigator": "",
+          "status": "",
+          "projectDuration": "",
+          "score": 0
+        }
+      ],
+      "researchProjectsTotalScore": 0,
+      "consultancyProjectsData": [
+        {
+          "id": "1",
+          "sNo": 1,
+          "nameOfConsultancyProject": "",
+          "consultingAgency": "",
+          "amount": "",
+          "score": 0
+        }
+      ],
+      "consultancyProjectsTotalScore": 0,
+      "researchGuidanceData": [
+        {
+          "id": "1",
+          "sNo": 1,
+          "nameOfStudent": "",
+          "university": "",
+          "titleOfThesis": "",
+          "guideCoGuide": "",
+          "score": 0
+        }
+      ],
+      "researchGuidanceTotalScore": 0,
+      "researchInterestGroupsData": [
+        {
+          "id": "1",
+          "sNo": 1,
+          "nameOfInterestGroup": "",
+          "sizeOfGroup": "",
+          "outcome": "",
+          "score": 0
+        }
+      ],
+      "researchInterestGroupsTotalScore": 0,
+      "nationalInternationalData": [
+        {
+          "id": "1",
+          "sNo": 1,
+          "nameOfInstitute": "",
+          "contactDetails": "",
+          "outcome": "",
+          "score": 0
+        }
+      ],
+      "nationalInternationalTotalScore": 0,
+      "industryLinkageData": [
+        {
+          "id": "1",
+          "sNo": 1,
+          "nameOfIndustry": "",
+          "contactDetails": "",
+          "outcome": "",
+          "score": 0
+        }
+      ],
+      "industryLinkageTotalScore": 0,
+      "organizingProgramsData": [
+        {
+          "id": "1",
+          "sNo": 1,
+          "title": "",
+          "period": "",
+          "sponsors": "",
+          "status": "",
+          "type": "",
+          "score": 0
+        }
+      ],
+      "organizingProgramsTotalScore": 0,
+      "attendingProgramsData": [
+        {
+          "id": "1",
+          "sNo": 1,
+          "title": "",
+          "authors": "",
+          "conferenceDetails": "",
+          "period": "",
+          "score": 0
+        }
+      ],
+      "attendingProgramsTotalScore": 0,
+      "facultyResourcePersonsData": [
+        {
+          "id": "1",
+          "sNo": 1,
+          "typeOfProgram": "",
+          "nameOfProgram": "",
+          "lectureTopic": "",
+          "duration": "",
+          "venue": "",
+          "organizedBy": "",
+          "score": 0
+        }
+      ],
+      "facultyResourcePersonsTotalScore": 0,
+      "facultyEditorialBoardsData": [
+        {
+          "id": "1",
+          "sNo": 1,
+          "natureOfContribution": "",
+          "associatedOrganization": "",
+          "nationalInternational": "",
+          "dateDuration": "",
+          "score": 0
+        }
+      ],
+      "facultyEditorialBoardsTotalScore": 0,
+      "trainingProgrammesData": [
+        {
+          "id": "1",
+          "sNo": 1,
+          "name": "",
+          "period": "",
+          "score": 0
+        }
+      ],
+      "trainingProgrammesTotalScore": 0,
+      "internationalTravelData": [
+        {
+          "id": "1",
+          "sNo": 1,
+          "purpose": "",
+          "place": "",
+          "outcome": "",
+          "score": 0
+        }
+      ],
+      "internationalTravelTotalScore": 0,
+      "contributionData": [
+        {
+          "id": "1",
+          "sNo": 1,
+          "responsibility": "",
+          "institute": "",
+          "work": "",
+          "period": "",
+          "score": 0
+        }
+      ],
+      "contributionTotalScore": 0,
+      "studentActivitiesData": [
+        {
+          "id": "1",
+          "sNo": 1,
+          "activity": "",
+          "period": "",
+          "score": 0
+        }
+      ],
+      "studentActivitiesTotalScore": 0,
+      "professionalBodiesData": [
+        {
+          "id": "1",
+          "sNo": 1,
+          "association": "",
+          "status": "",
+          "score": 0
+        }
+      ],
+      "professionalBodiesTotalScore": 0,
+      "awardsData": [
+        {
+          "id": "1",
+          "sNo": 1,
+          "award": "",
+          "organization": "",
+          "score": 0
+        }
+      ],
+      "awardsTotalScore": 0,
+      "differentiatorsData": [
+        {
+          "id": "1",
+          "sNo": 1,
+          "differentiator": "",
+          "participation": "",
+          "score": 0
+        }
+      ],
+      "differentiatorsTotalScore": 0,
+      "internshipsData": [
+        {
+          "id": "1",
+          "sNo": 1,
+          "industry": "",
+          "batchDetails": "",
+          "details": "",
+          "period": "",
+          "score": 0
+        }
+      ],
+      "internshipsTotalScore": 0,
+      "coreValuesData": [
+        {
+          "id": 1,
+          "parameter": "Punctuality, Attitude and Motivation",
+          "score": 10
+        },
+        {
+          "id": 2,
+          "parameter": "Professionalism",
+          "score": 10
+        },
+        {
+          "id": 3,
+          "parameter": "Willingness to Learn and Work",
+          "score": 10
+        },
+        {
+          "id": 4,
+          "parameter": "Cordiality and Team Spirit",
+          "score": 10
+        },
+        {
+          "id": 5,
+          "parameter": "Novel Pedagogical Methods and Instructional Materials used",
+          "score": 10
+        }
+      ],
+      "coreValuesTotalScore": 50,
+      "summaryData": [
+        {
+          "id": 1,
+          "category": "Teaching, Learning & Evaluation",
+          "maxScore": 150,
+          "selfAppraisal": 0,
+          "hodAssessment": 0
+        },
+        {
+          "id": 2,
+          "category": "Research & Consultancy",
+          "maxScore": 150,
+          "selfAppraisal": 0,
+          "hodAssessment": 0
+        },
+        {
+          "id": 3,
+          "category": "Faculty Development",
+          "maxScore": 100,
+          "selfAppraisal": 0,
+          "hodAssessment": 0
+        },
+        {
+          "id": 4,
+          "category": "Governance & Administration",
+          "maxScore": 50,
+          "selfAppraisal": 0,
+          "hodAssessment": 0
+        },
+        {
+          "id": 5,
+          "category": "Supplementary Process",
+          "maxScore": 50,
+          "selfAppraisal": 0,
+          "hodAssessment": 0
+        },
+        {
+          "id": 6,
+          "category": "Demonstration of VNRVJIET Core Values and Initiatives",
+          "maxScore": 50,
+          "selfAppraisal": 0,
+          "hodAssessment": 0
+        }
+      ],
+      "summaryTotalScore": 0
+    },
+    {
+      "id": "2356",
+      "username": "12345",
+      "employeeCode": {
+        "value": "enter code"
+      },
+      "nameOfEmployee": {
+        "value": "enter name"
+      },
+      "dateOfBirth": {
+        "value": "enter dob"
+      },
+      "dateOfJoining": {
+        "value": ""
+      },
+      "currentDesignation": {
+        "value": ""
+      },
+      "department": {
+        "value": ""
+      },
+      "assessmentPeriod": {
+        "value": ""
+      },
+      "presentPay": {
+        "value": ""
+      },
+      "leavesAvailed": {
+        "value": ""
+      },
+      "educationalQualifications": {
+        "value": ""
+      },
+      "higherQualifications": {
+        "value": ""
+      },
+      "specialization": {
+        "value": ""
+      },
+      "periodOfService": {
+        "value": ""
+      },
+      "experienceBeforeJoining": {
+        "value": ""
+      },
+      "totalExperience": {
+        "value": ""
+      },
+      "contactAddress": {
+        "value": ""
+      },
+      "newTableData": [],
+      "newTableTotalScore": 0,
+      "newTableGrandTotalScore": 0,
+      "secondTableData": [],
+      "secondTableTotalScore": 0,
+      "secondTableGrandTotalScore": 0,
+      "projectsData": [],
+      "projectsTotalScore": 0,
+      "grandprojectsTotalScore": 0,
+      "papersData": [],
+      "papersDataTotalScore": 0,
+      "citationsData": [],
+      "citationsTotalScore": 0,
+      "booksData": [],
+      "booksTotalScore": 0,
+      "patentsData": [],
+      "patentsTotalScore": 0,
+      "phdStatus": [],
+      "researchProjectsData": [],
+      "researchProjectsTotalScore": 0,
+      "consultancyProjectsData": [],
+      "consultancyProjectsTotalScore": 0,
+      "researchGuidanceData": [],
+      "researchGuidanceTotalScore": 0,
+      "researchInterestGroupsData": [],
+      "researchInterestGroupsTotalScore": 0,
+      "nationalInternationalData": [],
+      "nationalInternationalTotalScore": 0,
+      "industryLinkageData": [],
+      "industryLinkageTotalScore": 0,
+      "organizingProgramsData": [],
+      "organizingProgramsTotalScore": 0,
+      "attendingProgramsData": [],
+      "attendingProgramsTotalScore": 0,
+      "facultyResourcePersonsData": [],
+      "facultyResourcePersonsTotalScore": 0,
+      "facultyEditorialBoardsData": [],
+      "facultyEditorialBoardsTotalScore": 0,
+      "trainingProgrammesData": [],
+      "trainingProgrammesTotalScore": 0,
+      "internationalTravelData": [],
+      "internationalTravelTotalScore": 0,
+      "contributionData": [],
+      "contributionTotalScore": 0,
+      "studentActivitiesData": [],
+      "studentActivitiesTotalScore": 0,
+      "professionalBodiesData": [],
+      "professionalBodiesTotalScore": 0,
+      "awardsData": [],
+      "awardsTotalScore": 0,
+      "differentiatorsData": [],
+      "differentiatorsTotalScore": 0,
+      "internshipsData": [],
+      "internshipsTotalScore": 0,
+      "coreValuesData": [
+        {
+          "id": 1,
+          "parameter": "Punctuality, Attitude and Motivation",
+          "score": 0
+        },
+        {
+          "id": 2,
+          "parameter": "Professionalism",
+          "score": 0
+        },
+        {
+          "id": 3,
+          "parameter": "Willingness to Learn and Work",
+          "score": 0
+        },
+        {
+          "id": 4,
+          "parameter": "Cordiality and Team Spirit",
+          "score": 0
+        },
+        {
+          "id": 5,
+          "parameter": "Novel Pedagogical Methods and Instructional Materials used",
+          "score": 0
+        }
+      ],
+      "coreValuesTotalScore": 0,
+      "summaryData": [
+        {
+          "id": 1,
+          "category": "Teaching, Learning & Evaluation",
+          "maxScore": 150,
+          "selfAppraisal": 0,
+          "hodAssessment": 0
+        },
+        {
+          "id": 2,
+          "category": "Research & Consultancy",
+          "maxScore": 150,
+          "selfAppraisal": 0,
+          "hodAssessment": 0
+        },
+        {
+          "id": 3,
+          "category": "Faculty Development",
+          "maxScore": 100,
+          "selfAppraisal": 0,
+          "hodAssessment": 0
+        },
+        {
+          "id": 4,
+          "category": "Governance & Administration",
+          "maxScore": 50,
+          "selfAppraisal": 0,
+          "hodAssessment": 0
+        },
+        {
+          "id": 5,
+          "category": "Supplementary Process",
+          "maxScore": 50,
+          "selfAppraisal": 0,
+          "hodAssessment": 0
+        },
+        {
+          "id": 6,
+          "category": "Demonstration of VNRVJIET Core Values and Initiatives",
+          "maxScore": 50,
+          "selfAppraisal": 0,
+          "hodAssessment": 0
+        }
+      ],
+      "summaryTotalScore": 0
+    },
+    {
+      "id": "155a",
+      "username": "vishnu_09",
+      "employeeCode": {
+        "value": "enter code"
+      },
+      "nameOfEmployee": {
+        "value": "enter name"
+      },
+      "dateOfBirth": {
+        "value": "enter dob"
+      },
+      "dateOfJoining": {
+        "value": ""
+      },
+      "currentDesignation": {
+        "value": ""
+      },
+      "department": {
+        "value": ""
+      },
+      "assessmentPeriod": {
+        "value": ""
+      },
+      "presentPay": {
+        "value": ""
+      },
+      "leavesAvailed": {
+        "value": ""
+      },
+      "educationalQualifications": {
+        "value": ""
+      },
+      "higherQualifications": {
+        "value": ""
+      },
+      "specialization": {
+        "value": ""
+      },
+      "periodOfService": {
+        "value": ""
+      },
+      "experienceBeforeJoining": {
+        "value": ""
+      },
+      "totalExperience": {
+        "value": ""
+      },
+      "contactAddress": {
+        "value": ""
+      },
+      "newTableData": [],
+      "newTableTotalScore": 0,
+      "newTableGrandTotalScore": 0,
+      "secondTableData": [],
+      "secondTableTotalScore": 0,
+      "secondTableGrandTotalScore": 0,
+      "projectsData": [],
+      "projectsTotalScore": 0,
+      "grandprojectsTotalScore": 0,
+      "papersData": [],
+      "papersDataTotalScore": 0,
+      "citationsData": [],
+      "citationsTotalScore": 0,
+      "booksData": [],
+      "booksTotalScore": 0,
+      "patentsData": [],
+      "patentsTotalScore": 0,
+      "phdStatus": [],
+      "researchProjectsData": [],
+      "researchProjectsTotalScore": 0,
+      "consultancyProjectsData": [],
+      "consultancyProjectsTotalScore": 0,
+      "researchGuidanceData": [],
+      "researchGuidanceTotalScore": 0,
+      "researchInterestGroupsData": [],
+      "researchInterestGroupsTotalScore": 0,
+      "nationalInternationalData": [],
+      "nationalInternationalTotalScore": 0,
+      "industryLinkageData": [],
+      "industryLinkageTotalScore": 0,
+      "organizingProgramsData": [],
+      "organizingProgramsTotalScore": 0,
+      "attendingProgramsData": [],
+      "attendingProgramsTotalScore": 0,
+      "facultyResourcePersonsData": [],
+      "facultyResourcePersonsTotalScore": 0,
+      "facultyEditorialBoardsData": [],
+      "facultyEditorialBoardsTotalScore": 0,
+      "trainingProgrammesData": [],
+      "trainingProgrammesTotalScore": 0,
+      "internationalTravelData": [],
+      "internationalTravelTotalScore": 0,
+      "contributionData": [],
+      "contributionTotalScore": 0,
+      "studentActivitiesData": [],
+      "studentActivitiesTotalScore": 0,
+      "professionalBodiesData": [],
+      "professionalBodiesTotalScore": 0,
+      "awardsData": [],
+      "awardsTotalScore": 0,
+      "differentiatorsData": [],
+      "differentiatorsTotalScore": 0,
+      "internshipsData": [],
+      "internshipsTotalScore": 0,
+      "coreValuesData": [
+        {
+          "id": 1,
+          "parameter": "Punctuality, Attitude and Motivation",
+          "score": 0
+        },
+        {
+          "id": 2,
+          "parameter": "Professionalism",
+          "score": 0
+        },
+        {
+          "id": 3,
+          "parameter": "Willingness to Learn and Work",
+          "score": 0
+        },
+        {
+          "id": 4,
+          "parameter": "Cordiality and Team Spirit",
+          "score": 0
+        },
+        {
+          "id": 5,
+          "parameter": "Novel Pedagogical Methods and Instructional Materials used",
+          "score": 0
+        }
+      ],
+      "coreValuesTotalScore": 0,
+      "summaryData": [
+        {
+          "id": 1,
+          "category": "Teaching, Learning & Evaluation",
+          "maxScore": 150,
+          "selfAppraisal": 0,
+          "hodAssessment": 0
+        },
+        {
+          "id": 2,
+          "category": "Research & Consultancy",
+          "maxScore": 150,
+          "selfAppraisal": 0,
+          "hodAssessment": 0
+        },
+        {
+          "id": 3,
+          "category": "Faculty Development",
+          "maxScore": 100,
+          "selfAppraisal": 0,
+          "hodAssessment": 0
+        },
+        {
+          "id": 4,
+          "category": "Governance & Administration",
+          "maxScore": 50,
+          "selfAppraisal": 0,
+          "hodAssessment": 0
+        },
+        {
+          "id": 5,
+          "category": "Supplementary Process",
+          "maxScore": 50,
+          "selfAppraisal": 0,
+          "hodAssessment": 0
+        },
+        {
+          "id": 6,
+          "category": "Demonstration of VNRVJIET Core Values and Initiatives",
+          "maxScore": 50,
+          "selfAppraisal": 0,
+          "hodAssessment": 0
+        }
+      ],
+      "summaryTotalScore": 0
+    },
+    {
+      "id": "4f76",
+      "username": "",
+      "employeeCode": {
+        "value": "enter code"
+      },
+      "nameOfEmployee": {
+        "value": "enter name"
+      },
+      "dateOfBirth": {
+        "value": "enter dob"
+      },
+      "dateOfJoining": {
+        "value": ""
+      },
+      "currentDesignation": {
+        "value": ""
+      },
+      "department": {
+        "value": ""
+      },
+      "assessmentPeriod": {
+        "value": ""
+      },
+      "presentPay": {
+        "value": ""
+      },
+      "leavesAvailed": {
+        "value": ""
+      },
+      "educationalQualifications": {
+        "value": ""
+      },
+      "higherQualifications": {
+        "value": ""
+      },
+      "specialization": {
+        "value": ""
+      },
+      "periodOfService": {
+        "value": ""
+      },
+      "experienceBeforeJoining": {
+        "value": ""
+      },
+      "totalExperience": {
+        "value": ""
+      },
+      "contactAddress": {
+        "value": ""
+      },
+      "newTableData": [],
+      "newTableTotalScore": 0,
+      "newTableGrandTotalScore": 0,
+      "secondTableData": [],
+      "secondTableTotalScore": 0,
+      "secondTableGrandTotalScore": 0,
+      "projectsData": [],
+      "projectsTotalScore": 0,
+      "grandprojectsTotalScore": 0,
+      "papersData": [],
+      "papersDataTotalScore": 0,
+      "citationsData": [],
+      "citationsTotalScore": 0,
+      "booksData": [],
+      "booksTotalScore": 0,
+      "patentsData": [],
+      "patentsTotalScore": 0,
+      "phdStatus": [],
+      "researchProjectsData": [],
+      "researchProjectsTotalScore": 0,
+      "consultancyProjectsData": [],
+      "consultancyProjectsTotalScore": 0,
+      "researchGuidanceData": [],
+      "researchGuidanceTotalScore": 0,
+      "researchInterestGroupsData": [],
+      "researchInterestGroupsTotalScore": 0,
+      "nationalInternationalData": [],
+      "nationalInternationalTotalScore": 0,
+      "industryLinkageData": [],
+      "industryLinkageTotalScore": 0,
+      "organizingProgramsData": [],
+      "organizingProgramsTotalScore": 0,
+      "attendingProgramsData": [],
+      "attendingProgramsTotalScore": 0,
+      "facultyResourcePersonsData": [],
+      "facultyResourcePersonsTotalScore": 0,
+      "facultyEditorialBoardsData": [],
+      "facultyEditorialBoardsTotalScore": 0,
+      "trainingProgrammesData": [],
+      "trainingProgrammesTotalScore": 0,
+      "internationalTravelData": [],
+      "internationalTravelTotalScore": 0,
+      "contributionData": [],
+      "contributionTotalScore": 0,
+      "studentActivitiesData": [],
+      "studentActivitiesTotalScore": 0,
+      "professionalBodiesData": [],
+      "professionalBodiesTotalScore": 0,
+      "awardsData": [],
+      "awardsTotalScore": 0,
+      "differentiatorsData": [],
+      "differentiatorsTotalScore": 0,
+      "internshipsData": [],
+      "internshipsTotalScore": 0,
+      "coreValuesData": [
+        {
+          "id": 1,
+          "parameter": "Punctuality, Attitude and Motivation",
+          "score": 0
+        },
+        {
+          "id": 2,
+          "parameter": "Professionalism",
+          "score": 0
+        },
+        {
+          "id": 3,
+          "parameter": "Willingness to Learn and Work",
+          "score": 0
+        },
+        {
+          "id": 4,
+          "parameter": "Cordiality and Team Spirit",
+          "score": 0
+        },
+        {
+          "id": 5,
+          "parameter": "Novel Pedagogical Methods and Instructional Materials used",
+          "score": 0
+        }
+      ],
+      "coreValuesTotalScore": 0,
+      "summaryData": [
+        {
+          "id": 1,
+          "category": "Teaching, Learning & Evaluation",
+          "maxScore": 150,
+          "selfAppraisal": 0,
+          "hodAssessment": 0
+        },
+        {
+          "id": 2,
+          "category": "Research & Consultancy",
+          "maxScore": 150,
+          "selfAppraisal": 0,
+          "hodAssessment": 0
+        },
+        {
+          "id": 3,
+          "category": "Faculty Development",
+          "maxScore": 100,
+          "selfAppraisal": 0,
+          "hodAssessment": 0
+        },
+        {
+          "id": 4,
+          "category": "Governance & Administration",
+          "maxScore": 50,
+          "selfAppraisal": 0,
+          "hodAssessment": 0
+        },
+        {
+          "id": 5,
+          "category": "Supplementary Process",
+          "maxScore": 50,
+          "selfAppraisal": 0,
+          "hodAssessment": 0
+        },
+        {
+          "id": 6,
+          "category": "Demonstration of VNRVJIET Core Values and Initiatives",
+          "maxScore": 50,
+          "selfAppraisal": 0,
+          "hodAssessment": 0
+        }
+      ],
+      "summaryTotalScore": 0
+    },
+    {
+      "id": "208a",
+      "username": "vishnuvardhan0290@gmail.com",
+      "employeeCode": {
+        "value": "enter code"
+      },
+      "nameOfEmployee": {
+        "value": "enter name"
+      },
+      "dateOfBirth": {
+        "value": "enter dob"
+      },
+      "dateOfJoining": {
+        "value": ""
+      },
+      "currentDesignation": {
+        "value": ""
+      },
+      "department": {
+        "value": ""
+      },
+      "assessmentPeriod": {
+        "value": ""
+      },
+      "presentPay": {
+        "value": ""
+      },
+      "leavesAvailed": {
+        "value": ""
+      },
+      "educationalQualifications": {
+        "value": ""
+      },
+      "higherQualifications": {
+        "value": ""
+      },
+      "specialization": {
+        "value": ""
+      },
+      "periodOfService": {
+        "value": ""
+      },
+      "experienceBeforeJoining": {
+        "value": ""
+      },
+      "totalExperience": {
+        "value": ""
+      },
+      "contactAddress": {
+        "value": ""
+      },
+      "newTableData": [],
+      "newTableTotalScore": 0,
+      "newTableGrandTotalScore": 0,
+      "secondTableData": [],
+      "secondTableTotalScore": 0,
+      "secondTableGrandTotalScore": 0,
+      "projectsData": [],
+      "projectsTotalScore": 0,
+      "grandprojectsTotalScore": 0,
+      "papersData": [
+        {
+          "id": "1",
+          "sNo": 1,
+          "publicationDetails": {
+            "journalConferenceName": "",
+            "nationalInternational": ""
+          },
+          "authors": "",
+          "titleOfPaper": "",
+          "volumeIssuePageNos": "",
+          "dateOfPublication": "",
+          "issnIsbnNo": "",
+          "impactFactor": "",
+          "indexedIn": "",
+          "numberOfCitations": 0,
+          "score": 0
+        }
+      ],
+      "papersDataTotalScore": 0,
+      "citationsData": [],
+      "citationsTotalScore": 0,
+      "booksData": [],
+      "booksTotalScore": 0,
+      "patentsData": [],
+      "patentsTotalScore": 0,
+      "phdStatus": [],
+      "researchProjectsData": [],
+      "researchProjectsTotalScore": 0,
+      "consultancyProjectsData": [],
+      "consultancyProjectsTotalScore": 0,
+      "researchGuidanceData": [],
+      "researchGuidanceTotalScore": 0,
+      "researchInterestGroupsData": [],
+      "researchInterestGroupsTotalScore": 0,
+      "nationalInternationalData": [],
+      "nationalInternationalTotalScore": 0,
+      "industryLinkageData": [],
+      "industryLinkageTotalScore": 0,
+      "organizingProgramsData": [],
+      "organizingProgramsTotalScore": 0,
+      "attendingProgramsData": [],
+      "attendingProgramsTotalScore": 0,
+      "facultyResourcePersonsData": [],
+      "facultyResourcePersonsTotalScore": 0,
+      "facultyEditorialBoardsData": [],
+      "facultyEditorialBoardsTotalScore": 0,
+      "trainingProgrammesData": [],
+      "trainingProgrammesTotalScore": 0,
+      "internationalTravelData": [],
+      "internationalTravelTotalScore": 0,
+      "contributionData": [],
+      "contributionTotalScore": 0,
+      "studentActivitiesData": [],
+      "studentActivitiesTotalScore": 0,
+      "professionalBodiesData": [],
+      "professionalBodiesTotalScore": 0,
+      "awardsData": [],
+      "awardsTotalScore": 0,
+      "differentiatorsData": [],
+      "differentiatorsTotalScore": 0,
+      "internshipsData": [],
+      "internshipsTotalScore": 0,
+      "coreValuesData": [
+        {
+          "id": 1,
+          "parameter": "Punctuality, Attitude and Motivation",
+          "score": 0
+        },
+        {
+          "id": 2,
+          "parameter": "Professionalism",
+          "score": 0
+        },
+        {
+          "id": 3,
+          "parameter": "Willingness to Learn and Work",
+          "score": 0
+        },
+        {
+          "id": 4,
+          "parameter": "Cordiality and Team Spirit",
+          "score": 0
+        },
+        {
+          "id": 5,
+          "parameter": "Novel Pedagogical Methods and Instructional Materials used",
+          "score": 0
+        }
+      ],
+      "coreValuesTotalScore": 0,
+      "summaryData": [
+        {
+          "id": 1,
+          "category": "Teaching, Learning & Evaluation",
+          "maxScore": 150,
+          "selfAppraisal": 0,
+          "hodAssessment": 0
+        },
+        {
+          "id": 2,
+          "category": "Research & Consultancy",
+          "maxScore": 150,
+          "selfAppraisal": 0,
+          "hodAssessment": 0
+        },
+        {
+          "id": 3,
+          "category": "Faculty Development",
+          "maxScore": 100,
+          "selfAppraisal": 0,
+          "hodAssessment": 0
+        },
+        {
+          "id": 4,
+          "category": "Governance & Administration",
+          "maxScore": 50,
+          "selfAppraisal": 0,
+          "hodAssessment": 0
+        },
+        {
+          "id": 5,
+          "category": "Supplementary Process",
+          "maxScore": 50,
+          "selfAppraisal": 0,
+          "hodAssessment": 0
+        },
+        {
+          "id": 6,
+          "category": "Demonstration of VNRVJIET Core Values and Initiatives",
+          "maxScore": 50,
+          "selfAppraisal": 0,
+          "hodAssessment": 0
+        }
+      ],
+      "summaryTotalScore": 0
+    }
+  ]
+}
