@@ -1,56 +1,87 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { UserContext } from '../../context/UserContext';
 import Row from './Row';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const AcademicProjectsTable = ({ isEditable }) => {
-    const { user, setUser, updateUser } = useContext(UserContext);
+    const { user, updateUser } = useContext(UserContext);
+    const [projectsData, setProjectsData] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        fetch('/api/academic-projects')
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data)
+                setProjectsData(data || []); // Ensure an empty array is set if there is no data
+                setLoading(false);
+            })
+            .catch((error) => {
+                console.error('Error fetching academic projects:', error);
+                setLoading(false);
+            });
+    }, []);
 
     const addNewRow = () => {
         const newRow = {
-            id: (user[0].projectsData.length + 1).toString(),
-            sNo: user[0].projectsData.length + 1,
+            id: projectsData.length + 1,
+            sNo: projectsData.length + 1,
             course: "",
             projectType: "",
             numberOfBatchesOrStudents: 0,
             score: 0
         };
-        const updatedUser = [...user];
-        updatedUser[0].projectsData = [...updatedUser[0].projectsData, newRow];
-        updateUser(updatedUser);
+        const updatedProjectsData = [...projectsData, newRow];
+        setProjectsData(updatedProjectsData);
+        updateProjectsDataOnServer(updatedProjectsData);
     };
 
     const updateProjectData = (index, field, newValue) => {
-        const updatedData = [...user[0].projectsData];
-        updatedData[index] = { ...updatedData[index], [field]: newValue };
-        const newTotalScore = updatedData.reduce((total, project) => total + parseFloat(project.score), 0);
-        const updatedUser = [...user];
-        updatedUser[0].projectsData = updatedData;
-        updatedUser[0].projectsTotalScore = newTotalScore;
-        updateUser(updatedUser);
+        const updatedProjectsData = [...projectsData];
+        updatedProjectsData[index] = { ...updatedProjectsData[index], [field]: newValue };
+        setProjectsData(updatedProjectsData);
+        updateProjectsDataOnServer(updatedProjectsData);
     };
 
     const deleteRow = (index) => {
-        const updatedData = [...user[0].projectsData];
-        updatedData.splice(index, 1);
-        const newTotalScore = updatedData.reduce((total, project) => total + parseFloat(project.score), 0);
-        const updatedUser = [...user];
-        updatedUser[0].projectsData = updatedData;
-        updatedUser[0].projectsTotalScore = newTotalScore;
-        updateUser(updatedUser);
+        const updatedProjectsData = [...projectsData];
+        updatedProjectsData.splice(index, 1);
+        setProjectsData(updatedProjectsData);
+        updateProjectsDataOnServer(updatedProjectsData);
+    };
+
+    const updateProjectsDataOnServer = (data) => {
+        fetch('/api/academic-projects', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log('Updated data from server:', data); // Log server response
+            updateUser(data);
+        })
+        .catch((error) => {
+            console.error('Error updating academic projects data:', error);
+        });
     };
 
     const getGrandTotal = () => {
-        return user[0].projectsData.reduce((total, project) => total + parseFloat(project.score), 0);
+        return projectsData.reduce((total, project) => total + parseFloat(project.score), 0);
     };
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <div>
-       
-             <h3>1.3 Academic Projects Guided 	<span className='text-end '>Max. Score: 20</span><br></br>
-            </h3>
+            <h3>1.3 Academic Projects Guided  <span className='text-end'>Max. Score: 20</span><br /></h3>
             <p>(B.Tech - Mini Projects Guided: Score - 2 for each batch, B.Tech- Major Projects Guided: Score - 5 for each batch
-M.Tech- Mini Projects Guided: Score - 3 for each student, M.Tech- Major Projects Guided: Score - 5 for each student)
-</p>
+                M.Tech- Mini Projects Guided: Score - 3 for each student, M.Tech- Major Projects Guided: Score - 5 for each student)
+            </p>
             
             <table className="table table-bordered table-striped">
                 <thead>
@@ -63,8 +94,8 @@ M.Tech- Mini Projects Guided: Score - 3 for each student, M.Tech- Major Projects
                     </tr>
                 </thead>
                 <tbody>
-                    {user[0] && user[0].projectsData && user[0].projectsData.length > 0 ? (
-                        user[0].projectsData.map((project, index) => (
+                    {projectsData.length > 0 ? (
+                        projectsData.map((project, index) => (
                             <tr key={project.id}>
                                 <Row
                                     value={project.course}
@@ -94,7 +125,7 @@ M.Tech- Mini Projects Guided: Score - 3 for each student, M.Tech- Major Projects
                                     {isEditable ? (
                                         <button className="d-block mx-auto btn btn-danger" onClick={() => deleteRow(index)}>Delete</button>
                                     ) : (
-                                        <button className="d-block mx-auto btn btn-warning" onClick={() => alert("enable edit to use delete")}>Delete</button>
+                                        <button className="d-block mx-auto btn btn-warning" onClick={() => alert("Enable edit to use delete")}>Delete</button>
                                     )}
                                 </td>
                             </tr>
@@ -106,7 +137,7 @@ M.Tech- Mini Projects Guided: Score - 3 for each student, M.Tech- Major Projects
                     )}
                     <tr>
                         <td colSpan="3" className='text-end'><strong>Total</strong></td>
-                        <td><strong>{user[0] && user[0].projectsData ? getGrandTotal() : 0}</strong></td>
+                        <td><strong>{getGrandTotal()}</strong></td>
                     </tr>
                 </tbody>
             </table>

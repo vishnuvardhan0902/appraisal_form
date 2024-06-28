@@ -1,0 +1,28 @@
+.courses-table-container {
+    margin-top: 20px;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 0.25rem;
+}
+
+.table th,
+.table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+.form-control {
+    width: 100%; /* Ensure input fields expand to fill their parent TD */
+    min-width: 100px; /* Minimum width for input fields to prevent them from collapsing */
+}
+
+.btn {
+    margin: 5px;
+}

@@ -3,29 +3,43 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { UserContext } from '../../context/UserContext';
 
 const EmployeeDetails = ({ isEditable }) => {
-    const { user, updateUser } = useContext(UserContext);
+    const { user, setUser } = useContext(UserContext);
     const [employeeData, setEmployeeData] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Fetch employee data from server
-        fetch('/employee')
-            .then((response) => response.json())
-            .then((data) => {
-                setEmployeeData(data);
-                setLoading(false);
-            })
-            .catch((error) => {
-                console.error('Error fetching employee data:', error);
-                setLoading(false);
-            });
-    }, []);
+        if (user && user.username) {
+            fetch(`/employee?username=${user.username}`)
+                .then((response) => response.json())
+                .then((data) => {
+                    setEmployeeData(formatEmployeeData(data));
+                    setLoading(false);
+                })
+                .catch((error) => {
+                    console.error('Error fetching employee data:', error);
+                    setLoading(false);
+                });
+        }
+    }, [user]);
+
+    const formatEmployeeData = (data) => {
+        return {
+            ...data,
+            dateOfBirth: formatDate(data.dateOfBirth),
+            dateOfJoining: formatDate(data.dateOfJoining)
+        };
+    };
+
+    const formatDate = (dateStr) => {
+        if (!dateStr) return '';
+        const date = new Date(dateStr);
+        return date.toLocaleDateString('en-CA'); // Format as YYYY-MM-DD
+    };
 
     const updateField = (field, newValue) => {
         const updatedData = { ...employeeData, [field]: newValue };
         setEmployeeData(updatedData);
 
-        // Update employee data on server
         fetch('/employee', {
             method: 'PUT',
             headers: {
@@ -35,7 +49,8 @@ const EmployeeDetails = ({ isEditable }) => {
         })
         .then((response) => response.json())
         .then((data) => {
-            updateUser(data);
+            console.log('Updated data from server:', data); // Log server response
+            setUser(data);
         })
         .catch((error) => {
             console.error('Error updating employee data:', error);

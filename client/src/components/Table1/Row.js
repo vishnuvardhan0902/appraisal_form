@@ -23,6 +23,7 @@ const Row = ({ value, isEditable, type, setValue }) => {
                     value={editValue}
                     onChange={handleChange}
                     onBlur={handleBlur}
+                    className='form-control'
                 />
             ) : (
                 value

@@ -1,64 +1,95 @@
-import React, { useContext } from 'react';
-import { UserContext } from '../../context/UserContext';
-import Row from './Row';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 const LecturesTable = ({ isEditable }) => {
-    const { user, setUser, updateUser } = useContext(UserContext);
+    const [tableData, setTableData] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        fetchLectures();
+    }, []);
+
+    const fetchLectures = () => {
+        axios.get('/api/lectures')
+            .then((response) => {
+                setTableData(response.data);
+                setLoading(false);
+            })
+            .catch((error) => {
+                console.error('Error fetching lectures data:', error);
+                setLoading(false);
+            });
+    };
 
     const addNewRow = () => {
         const newRow = {
-            id: (user[0].newTableData.length + 1).toString(),
-            sNo: user[0].newTableData.length + 1,
-            courseName: "",
-            techYearSemester: "",
-            novelMethodsDetails: "",
+            sNo: tableData.length + 1,
+            courseName: '',
+            techYearSemester: '',
+            novelMethodsDetails: '',
             novelMethodsScore: 0,
             teachingPeriodsPlanned: 0,
             teachingPeriodsConducted: 0,
             classesEngaged: 0,
-            totalScore: 0
+            totalScore: 0,
         };
-        const updatedUser = [...user];
-        updatedUser[0].newTableData = [...updatedUser[0].newTableData, newRow];
-        updateUser(updatedUser);
+
+        axios.post('/api/lectures', newRow)
+            .then((response) => {
+                setTableData([...tableData, response.data]);
+            })
+            .catch((error) => {
+                console.error('Error adding new row:', error);
+            });
     };
 
-    const updateLectureData = (index, field, newValue) => {
-        const updatedData = [...user[0].newTableData];
-        updatedData[index] = { ...updatedData[index], [field]: newValue };
-        const newTotalScore = updatedData.reduce((total, lecture) => total + parseFloat(lecture.totalScore), 0);
-        const updatedUser = [...user];
-        updatedUser[0].newTableData = updatedData;
-        updatedUser[0].newTableTotalScore = newTotalScore;
-        updatedUser[0].newTableGrandTotalScore = newTotalScore;
-        updateUser(updatedUser);
+    const updateField = (index, field, newValue) => {
+        const updatedLecture = { ...tableData[index], [field]: newValue };
+        const updatedData = [...tableData];
+        updatedData[index] = updatedLecture;
+        setTableData(updatedData);
+
+        axios.put(`/api/lectures/${updatedLecture.id}`, updatedLecture)
+            .then((response) => {
+                // Optionally handle response if needed
+            })
+            .catch((error) => {
+                console.error('Error updating lecture data:', error);
+            });
     };
 
-    const deleteRow = (index) => {
-        const updatedData = [...user[0].newTableData];
-        updatedData.splice(index, 1);
-        const newTotalScore = updatedData.reduce((total, lecture) => total + parseFloat(lecture.totalScore), 0);
-        const updatedUser = [...user];
-        updatedUser[0].newTableData = updatedData;
-        updatedUser[0].newTableTotalScore = newTotalScore;
-        updatedUser[0].newTableGrandTotalScore = newTotalScore;
-        updateUser(updatedUser);
+    const deleteLecture = (id, index) => {
+        axios.delete(`/api/lectures/${id}`)
+            .then(() => {
+                const updatedLectures = [...tableData];
+                updatedLectures.splice(index, 1);
+                setTableData(updatedLectures);
+            })
+            .catch((error) => {
+                console.error('Error deleting lecture:', error);
+            });
     };
 
     const getGrandTotal = () => {
-        return user[0].newTableData.reduce((total, lecture) => total + parseFloat(lecture.totalScore), 0);
+        return tableData.reduce((total, lecture) => total + parseFloat(lecture.totalScore), 0);
     };
+
+    const formatFieldLabel = (key) => {
+        return key
+            .replace(/([a-z])([A-Z])/g, '$1 $2')
+            .replace(/([A-Z])/g, ' $1')
+            .replace(/\./g, ' ')
+            .replace(/^./, (str) => str.toUpperCase());
+    };
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <div>
-             <h2>CATEGORY1:   TEACHING, LEARNING & EVALUATION    			<span className='text-end '>Max. Score: 150</span></h2>
-        
-             <h3>1.1	Lectures, Practical, Contact hours (Semester-wise) 					Max. Score=50 <br></br>
-                </h3>
-            <p>(For each course score –10 for 96-100% engagement, <br></br>
-                8 for 90 to 95% engagement, <br></br>
-                6 for 80 to 89% engagement,<br></br>
-                Score-5 for each course for the novel pedagogical methods used (at least to an extent of 25%))<br></br>
-            </p>
+            <h2>Lectures Table</h2>
             <table className="table table-bordered table-striped">
                 <thead>
                     <tr>
@@ -75,63 +106,95 @@ const LecturesTable = ({ isEditable }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {user[0] && user[0].newTableData && user[0].newTableData.length > 0 ? (
-                        user[0].newTableData.map((lecture, index) => (
+                    {tableData.length > 0 ? (
+                        tableData.map((lecture, index) => (
                             <tr key={lecture.id}>
                                 <td>{lecture.sNo}</td>
-                                <Row
-                                    value={lecture.courseName}
-                                    isEditable={isEditable}
-                                    type="text"
-                                    setValue={(newValue) => updateLectureData(index, 'courseName', newValue)}
-                                />
-                                <Row
-                                    value={lecture.techYearSemester}
-                                    isEditable={isEditable}
-                                    type="text"
-                                    setValue={(newValue) => updateLectureData(index, 'techYearSemester', newValue)}
-                                />
-                                <Row
-                                    value={lecture.novelMethodsDetails}
-                                    isEditable={isEditable}
-                                    type="text"
-                                    setValue={(newValue) => updateLectureData(index, 'novelMethodsDetails', newValue)}
-                                />
-                                <Row
-                                    value={lecture.novelMethodsScore}
-                                    isEditable={isEditable}
-                                    type="number"
-                                    setValue={(newValue) => updateLectureData(index, 'novelMethodsScore', newValue)}
-                                />
-                                <Row
-                                    value={lecture.teachingPeriodsPlanned}
-                                    isEditable={isEditable}
-                                    type="number"
-                                    setValue={(newValue) => updateLectureData(index, 'teachingPeriodsPlanned', newValue)}
-                                />
-                                <Row
-                                    value={lecture.teachingPeriodsConducted}
-                                    isEditable={isEditable}
-                                    type="number"
-                                    setValue={(newValue) => updateLectureData(index, 'teachingPeriodsConducted', newValue)}
-                                />
-                                <Row
-                                    value={lecture.classesEngaged}
-                                    isEditable={isEditable}
-                                    type="text"
-                                    setValue={(newValue) => updateLectureData(index, 'classesEngaged', newValue)}
-                                />
-                                <Row
-                                    value={lecture.totalScore}
-                                    isEditable={isEditable}
-                                    type="number"
-                                    setValue={(newValue) => updateLectureData(index, 'totalScore', newValue)}
-                                />
                                 <td>
-                                {     
-                                isEditable?( <button className="d-block mx-auto btn btn-danger" onClick={() => deleteRow(index)}>Delete</button>) :(<button className="d-block mx-auto btn btn-warning" onClick={() => alert("enable edit to use delete")}>Delete</button>)                             
-                                }                               
-                                 </td>
+                                    {isEditable ? (
+                                        <input
+                                            type="text"
+                                            value={lecture.courseName}
+                                            onChange={(e) => updateField(index, 'courseName', e.target.value)}
+                                            className="form-control"
+                                        />
+                                    ) : (
+                                        lecture.courseName
+                                    )}
+                                </td>
+                                <td>
+                                    {isEditable ? (
+                                        <input
+                                            type="text"
+                                            value={lecture.techYearSemester}
+                                            onChange={(e) => updateField(index, 'techYearSemester', e.target.value)}
+                                            className="form-control"
+                                        />
+                                    ) : (
+                                        lecture.techYearSemester
+                                    )}
+                                </td>
+                                <td>
+                                    {isEditable ? (
+                                        <input
+                                            type="text"
+                                            value={lecture.novelMethodsDetails}
+                                            onChange={(e) => updateField(index, 'novelMethodsDetails', e.target.value)}
+                                            className="form-control"
+                                        />
+                                    ) : (
+                                        lecture.novelMethodsDetails
+                                    )}
+                                </td>
+                                <td>{lecture.novelMethodsScore}</td>
+                                <td>
+                                    {isEditable ? (
+                                        <input
+                                            type="number"
+                                            value={lecture.teachingPeriodsPlanned}
+                                            onChange={(e) => updateField(index, 'teachingPeriodsPlanned', parseInt(e.target.value))}
+                                            className="form-control"
+                                        />
+                                    ) : (
+                                        lecture.teachingPeriodsPlanned
+                                    )}
+                                </td>
+                                <td>
+                                    {isEditable ? (
+                                        <input
+                                            type="number"
+                                            value={lecture.teachingPeriodsConducted}
+                                            onChange={(e) => updateField(index, 'teachingPeriodsConducted', parseInt(e.target.value))}
+                                            className="form-control"
+                                        />
+                                    ) : (
+                                        lecture.teachingPeriodsConducted
+                                    )}
+                                </td>
+                                <td>
+                                    {isEditable ? (
+                                        <input
+                                            type="number"
+                                            value={lecture.classesEngaged}
+                                            onChange={(e) => updateField(index, 'classesEngaged', parseInt(e.target.value))}
+                                            className="form-control"
+                                        />
+                                    ) : (
+                                        lecture.classesEngaged
+                                    )}
+                                </td>
+                                <td>{lecture.totalScore}</td>
+                                <td>
+                                    {isEditable ? (
+                                        <div>
+                                            <button className="btn btn-danger mx-1" onClick={() => deleteLecture(lecture.id, index)}>Delete</button>
+                                        </div>
+                                    ) : (
+                                        <div>
+                                            <button className="btn btn-warning mx-1" disabled>Delete</button>
+                                        </div>
+                                    )}
+                                </td>
                             </tr>
                         ))
                     ) : (
@@ -141,12 +204,15 @@ const LecturesTable = ({ isEditable }) => {
                     )}
                     <tr>
                         <td colSpan="8" className='text-end'><strong>Grand Total</strong></td>
-                        <td><strong>{user[0] && user[0].newTableData ? getGrandTotal() : 0}</strong></td>
+                        <td><strong>{getGrandTotal()}</strong></td>
                     </tr>
                 </tbody>
             </table>
-            <button onClick={addNewRow} className="d-block mx-auto mb-3 btn btn-primary">Add Row</button>
-
+            {isEditable && (
+                <div className="text-center">
+                    <button className="btn btn-primary" onClick={addNewRow}>Add Row</button>
+                </div>
+            )}
         </div>
     );
 };

@@ -1,48 +1,80 @@
-import React, { useContext, useState } from 'react';
-import { UserContext } from '../../context/UserContext';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Row from './Row';
 
 const CitationsTable = ({ isEditable }) => {
-    const { user, updateUser } = useContext(UserContext);
+    const [citations, setCitations] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        fetchCitations();
+    }, []);
+
+    const fetchCitations = () => {
+        axios.get('/api/citations')
+            .then(response => {
+                setCitations(response.data);
+                setLoading(false);
+            })
+            .catch(error => {
+                console.error('Error fetching citations:', error);
+                setLoading(false);
+            });
+    };
 
     const addNewRow = () => {
         const newRow = {
-            id: (user[0].citationsData.length + 1).toString(),
-            sNo: user[0].citationsData.length + 1,
+            sNo: citations.length + 1,
             publicationsTillDate: 0,
             publicationsWithCitations: 0,
             totalCitations: 0,
             hIndex: 0,
             score: 0
         };
-        const updatedUser = [...user];
-        updatedUser[0].citationsData = [...updatedUser[0].citationsData, newRow];
-        updateUser(updatedUser);
+
+        axios.post('/api/citations', newRow)
+            .then(response => {
+                setCitations([...citations, response.data]);
+            })
+            .catch(error => {
+                console.error('Error adding new row:', error);
+            });
     };
 
     const updateCitationsData = (index, field, newValue) => {
-        const updatedData = [...user[0].citationsData];
-        updatedData[index] = { ...updatedData[index], [field]: newValue };
-        const newTotalScore = updatedData.reduce((total, citation) => total + parseFloat(citation.score), 0);
-        const updatedUser = [...user];
-        updatedUser[0].citationsData = updatedData;
-        updatedUser[0].citationsTotalScore = newTotalScore;
-        updateUser(updatedUser);
+        const updatedCitation = { ...citations[index], [field]: newValue };
+        const updatedCitations = [...citations];
+        updatedCitations[index] = updatedCitation;
+
+        axios.put(`/api/citations/${updatedCitation.id}`, updatedCitation)
+            .then(response => {
+                setCitations(updatedCitations);
+            })
+            .catch(error => {
+                console.error('Error updating citation data:', error);
+            });
     };
 
-    const deleteRow = (index) => {
-        const updatedData = [...user[0].citationsData];
-        updatedData.splice(index, 1);
-        const newTotalScore = updatedData.reduce((total, citation) => total + parseFloat(citation.score), 0);
-        const updatedUser = [...user];
-        updatedUser[0].citationsData = updatedData;
-        updatedUser[0].citationsTotalScore = newTotalScore;
-        updateUser(updatedUser);
+    const deleteRow = (id, index) => {
+        axios.delete(`/api/citations/${id}`)
+            .then(() => {
+                const updatedCitations = [...citations];
+                updatedCitations.splice(index, 1);
+                setCitations(updatedCitations);
+            })
+            .catch(error => {
+                console.error('Error deleting citation:', error);
+            });
     };
 
     const getGrandTotal = () => {
-        return user[0].citationsData.reduce((total, citation) => total + parseFloat(citation.score), 0);
+        return citations.reduce((total, citation) => total + parseFloat(citation.score), 0);
     };
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <div>
@@ -61,8 +93,8 @@ const CitationsTable = ({ isEditable }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {user[0] && user[0].citationsData && user[0].citationsData.length > 0 ? (
-                        user[0].citationsData.map((citation, index) => (
+                    {citations.length > 0 ? (
+                        citations.map((citation, index) => (
                             <tr key={citation.id}>
                                 <Row
                                     value={citation.sNo}
@@ -101,9 +133,9 @@ const CitationsTable = ({ isEditable }) => {
                                 />
                                 <td>
                                     {isEditable ? (
-                                        <button className="d-block mx-auto btn btn-danger" onClick={() => deleteRow(index)}>Delete</button>
+                                        <button className="d-block mx-auto btn btn-danger" onClick={() => deleteRow(citation.id, index)}>Delete</button>
                                     ) : (
-                                        <button className="d-block mx-auto btn btn-warning" onClick={() => alert("enable edit to use delete")}>Delete</button>
+                                        <button className="d-block mx-auto btn btn-warning" onClick={() => alert("Enable edit to use delete")}>Delete</button>
                                     )}
                                 </td>
                             </tr>
@@ -115,11 +147,15 @@ const CitationsTable = ({ isEditable }) => {
                     )}
                     <tr>
                         <td colSpan="5" className='text-end'><strong>Total</strong></td>
-                        <td><strong>{user[0] && user[0].citationsData ? getGrandTotal() : 0}</strong></td>
+                        <td><strong>{getGrandTotal()}</strong></td>
                     </tr>
                 </tbody>
             </table>
-            <button onClick={addNewRow} className="d-block mx-auto mb-3 btn btn-primary">Add Row</button>
+            {isEditable && (
+                <div className="text-center">
+                    <button className="btn btn-primary" onClick={addNewRow}>Add Row</button>
+                </div>
+            )}
         </div>
     );
 };

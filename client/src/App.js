@@ -9,7 +9,7 @@ import EmployeeDetails from './components/Table1/EmployeeDetails';
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <EmployeeDetails />,
+        element: <Login/>,
     },
     {
         path: "Register",

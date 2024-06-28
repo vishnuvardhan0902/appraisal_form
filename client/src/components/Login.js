@@ -31,6 +31,23 @@ function handleForm(userCredentials){
     )
   
 }
+// fetch(`http://localhost:4002/users?username=${3233}`,{method:"GET"})
+//   .then(res=>res.json())
+//   .then(newuserObj=>
+//     {
+//       //checking whether the entered username exists or not
+//       if(newuserObj.length==0)
+//       {
+//         alert("Faculty ID not found");
+//       }
+//       else{
+//         console.log(newuserObj[0])
+//         setUser([newuserObj[0]])
+//         navigate('/AppraisalForm',{state:  newuserObj[0]})
+
+//       }
+//     }
+//     )
   return (
     <div className="container">
   <div className="page-container">

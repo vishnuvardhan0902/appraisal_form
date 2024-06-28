@@ -33,15 +33,18 @@ import DifferentiatorsTable from './components/Table1/DifferentiatorsTable';
 import InternshipsTable from './components/Table1/InternshipsTable';
 import CoreValuesTable from './components/Table1/CoreValuesTable';
 import SummaryOfScores from './components/Table1/SummaryOfScores';
+
 function AppraisalForm() {
     const { user, setUser } = useContext(UserContext);
     const location = useLocation();
     const [isEditable, setIsEditable] = React.useState(false);
 
+    const username = location.state?.username || 3233;
+
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get(`http://localhost:4002/users?username=${location.state.username}`);
+                const response = await axios.get(`http://localhost:4002/users?username=${username}`);
                 setUser(response.data);
             } catch (error) {
                 console.error('Error fetching user data:', error);
@@ -49,7 +52,7 @@ function AppraisalForm() {
         };
 
         fetchUserData();
-    }, [location.state.username, setUser]);
+    }, [username, setUser]);
 
     const toggleEdit = () => {
         setIsEditable(!isEditable);
@@ -68,21 +71,18 @@ function AppraisalForm() {
                     <EmployeeDetails isEditable={isEditable} />
                 </div>
             </div>
-            <div className="row">
+             <div className="row">
                 <div className="col-md-12">
                     <LecturesTable isEditable={isEditable} />
                 </div>
             </div>
+            
             <div className="row">
                 <div className="col-md-12">
                     <CoursesTable isEditable={isEditable} />
                 </div>
             </div>
-            <div className="row">
-                <div className="col-md-12">
-                    <AcademicProjectsTable isEditable={isEditable} />
-                </div>
-            </div>
+             
             <div className="row">
                 <div className="col-md-12">
                     <ResearchPapersTable isEditable={isEditable} />
@@ -207,7 +207,7 @@ function AppraisalForm() {
                 <div className="col-md-12">
                     <SummaryOfScores isEditable={isEditable} />
                 </div>
-            </div>
+            </div> 
         </div>
     );
 }

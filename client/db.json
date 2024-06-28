@@ -17,7 +17,7 @@
       "periodOfService": "16 years",
       "experienceBeforeJoining": "Teaching: 3 years, Industrial: 2 years, Research: 1 year",
       "totalExperience": "Teaching: 18 years, Industrial: 2 years, Research: 1 year",
-      "contactAddress": "123 Main St, City, Country, 12345, Email: john.doe@example.com",
+      "contactAddress": "vishnuvardhan@gmail.com",
       "newTableData": [
         {
           "id": "1",
@@ -48,38 +48,38 @@
       "newTableGrandTotalScore": 19,
       "secondTableData": [
         {
-          "id": "1",
+          "id": 3,
           "sNo": 1,
-          "courseName": "Advanced Algorithms",
+          "courseName": "Mathematics",
           "sizeOfClass": 30,
           "studentsAttendance75": 25,
-          "studentsAttendance6575": 3,
-          "attendanceScore": 9,
-          "feedbackReceived": 4,
-          "gradeO": 5,
-          "gradeAB": 15,
-          "gradeCD": 10,
-          "resultsScore": 8,
-          "totalScore": 20
+          "studentsAttendance6575": 5,
+          "attendanceScore": "4.50",
+          "feedbackReceived": "30.00",
+          "gradeO": "10.00",
+          "gradeAB": "5.00",
+          "gradeCD": "2.00",
+          "resultsScore": "8.00",
+          "totalScore": "17.00"
         },
         {
-          "id": "2",
+          "id": 4,
           "sNo": 2,
-          "courseName": "Machine Learning",
+          "courseName": "Physics",
           "sizeOfClass": 25,
-          "studentsAttendance75": 20,
-          "studentsAttendance6575": 4,
-          "attendanceScore": 8,
-          "feedbackReceived": 5,
-          "gradeO": 6,
-          "gradeAB": 12,
-          "gradeCD": 7,
-          "resultsScore": 7,
-          "totalScore": 20
+          "studentsAttendance75": 22,
+          "studentsAttendance6575": 3,
+          "attendanceScore": "4.00",
+          "feedbackReceived": "25.00",
+          "gradeO": "8.00",
+          "gradeAB": "5.00",
+          "gradeCD": "2.00",
+          "resultsScore": "7.00",
+          "totalScore": "16.00"
         }
       ],
-      "secondTableTotalScore": 40,
-      "secondTableGrandTotalScore": 40,
+      "secondTableTotalScore": 33,
+      "secondTableGrandTotalScore": 33,
       "projectsData": [
         {
           "id": "1",
@@ -104,23 +104,23 @@
           "id": "1",
           "sNo": 1,
           "publicationDetails": {
-            "journalConferenceName": "kljlkjf",
-            "nationalInternational": "flajsl"
+            "journalConferenceName": "",
+            "nationalInternational": ""
           },
-          "authors": "fas",
-          "titleOfPaper": "adsf",
-          "volumeIssuePageNos": "asdf",
-          "dateOfPublication": "sdf",
-          "issnIsbnNo": "sdaf",
-          "impactFactor": "sdf",
-          "indexedIn": "af",
-          "numberOfCitations": 9,
-          "score": 99
+          "authors": "",
+          "titleOfPaper": "",
+          "volumeIssuePageNos": "",
+          "dateOfPublication": "",
+          "issnIsbnNo": "",
+          "impactFactor": "",
+          "indexedIn": "",
+          "numberOfCitations": 0,
+          "score": 0
         }
       ],
       "papersDataTotalScore": 0,
       "id": "1c0f",
-      "papersTotalScore": 99,
+      "papersTotalScore": 0,
       "citationsData": [
         {
           "id": "1",
@@ -151,7 +151,7 @@
           "authors": "",
           "publisherDetails": "",
           "editionVolumeIssuePageNos": "",
-          "dateOfPublication": "",
+          "dateOfPublication": "2024-06-29",
           "issnIsbnNo": "",
           "publishedEdited": "",
           "score": 0
@@ -217,6 +217,15 @@
         {
           "id": "1",
           "sNo": 1,
+          "nameOfStudent": "",
+          "university": "",
+          "titleOfThesis": "",
+          "guideCoGuide": "",
+          "score": 0
+        },
+        {
+          "id": "3",
+          "sNo": 3,
           "nameOfStudent": "",
           "university": "",
           "titleOfThesis": "",
@@ -428,7 +437,7 @@
           "category": "Teaching, Learning & Evaluation",
           "maxScore": 150,
           "selfAppraisal": 0,
-          "hodAssessment": 0
+          "hodAssessment": 17
         },
         {
           "id": 2,
@@ -468,5 +477,6 @@
       ],
       "summaryTotalScore": 0
     }
+    
   ]
 }
