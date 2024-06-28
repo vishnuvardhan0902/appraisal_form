@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../context/UserContext';
 
 const EmployeeDetails = ({ isEditable }) => {
@@ -8,10 +8,12 @@ const EmployeeDetails = ({ isEditable }) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (user && user.username) {
-            fetch(`/employee?username=${user.username}`)
+        // console.log(user);
+        if (user && user.length > 0 && user[0].username) {
+            fetch(`http://localhost:3002/getEmp/${user[0].username}`)
                 .then((response) => response.json())
                 .then((data) => {
+                    // console.log(data);
                     setEmployeeData(formatEmployeeData(data));
                     setLoading(false);
                 })
@@ -40,30 +42,24 @@ const EmployeeDetails = ({ isEditable }) => {
         const updatedData = { ...employeeData, [field]: newValue };
         setEmployeeData(updatedData);
 
-        fetch('/employee', {
+        fetch(`http://localhost:3002/updateEmp`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(updatedData),
         })
-        .then((response) => response.json())
-        .then((data) => {
-            console.log('Updated data from server:', data); // Log server response
-            setUser(data);
-        })
-        .catch((error) => {
-            console.error('Error updating employee data:', error);
-        });
+            .then((response) => response.json())
+            .then((data) => {
+                console.log('Updated data from server:', data); // Log server response
+                setUser(data);
+            })
+            .catch((error) => {
+                console.error('Error updating employee data:', error);
+            });
     };
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
-
     const renderField = (key, value) => {
-        if (key === 'id') return null;
-
         let inputType = 'text';
         if (key.toLowerCase().includes('date')) {
             inputType = 'date';
@@ -120,22 +116,25 @@ const EmployeeDetails = ({ isEditable }) => {
     ];
 
     return (
-        <div className="d-block mx-auto">
-            <table className="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Description</th>
-                        <th>Details</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {fieldsToShow.map((key) => {
-                        const value = employeeData[key];
-                        return renderField(key, value);
-                    })}
-                </tbody>
-            </table>
-        </div>
+        (
+            loading ? <div>Loading...</div> :
+                <div className="d-block mx-auto">
+                    <table className="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {fieldsToShow.map((key) => {
+                                const value = employeeData[key];
+                                return renderField(key, value);
+                            })}
+                        </tbody>
+                    </table>
+                </div>
+        )
     );
 };
 

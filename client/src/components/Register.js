@@ -2,32 +2,33 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
-import '../Register.css'
+import '../Register.css';
 
 function Register() {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [newUserState, setNewUser] = useState([]);
   let navigate = useNavigate();
 
-  function handleForm(NewUser) {
+  async function handleForm(NewUser) {
     const newUser = {
       username: NewUser.username,
-      employeeCode: { value: "enter code" },
-      nameOfEmployee: { value: "enter name" },
-      dateOfBirth: { value: "enter dob" },
-      dateOfJoining: { value: "" },
-      currentDesignation: { value: "" },
-      department: { value: "" },
-      assessmentPeriod: { value: "" },
-      presentPay: { value: "" },
-      leavesAvailed: { value: "" },
-      educationalQualifications: { value: "" },
-      higherQualifications: { value: "" },
-      specialization: { value: "" },
-      periodOfService: { value: "" },
-      experienceBeforeJoining: { value: "" },
-      totalExperience: { value: "" },
-      contactAddress: { value: "" },
+      empType:NewUser.empType,
+      employeeCode: "enter code",
+      nameOfEmployee: "enter name",
+      dateOfBirth: "enter dob",
+      dateOfJoining: "",
+      currentDesignation: "",
+      department: "",
+      assessmentPeriod: "",
+      presentPay: "",
+      leavesAvailed: "",
+      educationalQualifications: "",
+      higherQualifications: "",
+      specialization: "",
+      periodOfService: "",
+      experienceBeforeJoining: "",
+      totalExperience: "",
+      contactAddress: "",
       newTableData: [],
       newTableTotalScore: 0,
       newTableGrandTotalScore: 0,
@@ -118,18 +119,31 @@ function Register() {
       periodOfService: "",
       experienceBeforeJoining: "",
       totalExperience: "",
-      contactAddress: ""
+      contactAddress: "",
+      empType:NewUser.empType
     };
 
-    axios.all([
-      axios.post('http://localhost:4002/users', newUser),
-      axios.post('/employee', employeeData)
-    ])
-    .then(axios.spread((userResponse, employeeResponse) => {
-      setNewUser([...newUserState, userResponse.data]);
-      navigate('/')
-    }))
-    .catch(error => console.error('Error adding new row:', error));
+    try {
+      // Check if user already exists
+      const userResponse = await axios.get(`http://localhost:4002/users?username=${NewUser.username}`);
+      if (userResponse.data.length > 0) {
+        console.log('User already exists:', userResponse.data[0]);
+        alert('User already exists');
+      } else {
+        // Register new user
+        await axios.all([
+          axios.post('http://localhost:4002/users', newUser),
+          axios.post('/register', employeeData)
+        ])
+        .then(axios.spread((newUserResponse, employeeResponse) => {
+          setNewUser([...newUserState, newUserResponse.data]);
+          navigate('/');
+        }));
+      }
+    } catch (error) {
+      console.error('Error adding new row:', error);
+      alert('Error registering user');
+    }
   }
 
   return (
@@ -141,6 +155,8 @@ function Register() {
             <div>
               <label>Faculty ID:</label>
               <input type="text" {...register('username')} required />
+              <label>EmpType</label>
+              <input type="text" {...register('empType')} required />
             </div>
             <button type="submit">Register</button>
           </form>

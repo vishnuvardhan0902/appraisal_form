@@ -91,7 +91,7 @@ const ResearchPapersTable = ({ isEditable }) => {
                         user[0].papersData.map((paper, index) => (
                             <tr key={paper.id}>
                                 <Row
-                                    value={paper.sNo}
+                                    value={index+1}
                                     isEditable={false}
                                     type="text"
                                 />
