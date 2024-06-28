@@ -1,0 +1,2 @@
+CREATE TABLE employees (username VARCHAR(50) PRIMARY KEY, password VARCHAR(50), nameOfEmployee VARCHAR(100), dateOfBirth DATE, dateOfJoining DATE, currentDesignation VARCHAR(100), department VARCHAR(100), assessmentPeriod VARCHAR(50), presentPay DECIMAL(10, 2), leavesAvailed INT, educationalQualifications TEXT, higherQualifications TEXT, specialization VARCHAR(100), periodOfService INT, experienceBeforeJoining INT, totalExperience INT, contactAddress TEXT,empType VARCHAR(20));
+

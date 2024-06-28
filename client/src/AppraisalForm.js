@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext,useState } from 'react';
 import './App.css';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
@@ -37,7 +37,8 @@ import SummaryOfScores from './components/Table1/SummaryOfScores';
 function AppraisalForm() {
     const { user, setUser } = useContext(UserContext);
     const location = useLocation();
-    const [isEditable, setIsEditable] = React.useState(false);
+    const [isEditable, setIsEditable] = useState(false);
+    const [isHod, setIsHod] = useState(false);
 
     const username = location.state?.username || 3233;
 
@@ -45,7 +46,13 @@ function AppraisalForm() {
         const fetchUserData = async () => {
             try {
                 const response = await axios.get(`http://localhost:4002/users?username=${username}`);
+                console.log(response.data[0]);
                 setUser(response.data);
+                console.log("?>?>");
+                if(response.data[0].empType==="hod"){
+                    console.log("isHod");
+                    setIsHod(true)
+                }
             } catch (error) {
                 console.error('Error fetching user data:', error);
             }
@@ -205,7 +212,7 @@ function AppraisalForm() {
             </div>
             <div className="row">
                 <div className="col-md-12">
-                    <SummaryOfScores isEditable={isEditable} />
+                    <SummaryOfScores isEditable={isHod} />
                 </div>
             </div> 
         </div>
